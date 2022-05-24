@@ -1,0 +1,17 @@
+Sub Keywords()
+SearchRow = 2
+
+Dim wrdArray() As String
+Dim str1 As String
+
+While Len(Range("D" & CStr(SearchRow)).Value) > 0
+    Cells(SearchRow, 8).Value = ""
+    str1 = Cells(SearchRow, 7).Value
+    wrdArray() = Split(str1, ",")
+    For Each wrd In wrdArray()
+        Cells(SearchRow, 8).Value = Cells(SearchRow, 8).Value + "<researcher_keyword>" + wrd + "</researcher_keyword>" + vbNewLine
+        Next wrd
+    SearchRow = SearchRow + 1
+Wend
+    
+End Sub
